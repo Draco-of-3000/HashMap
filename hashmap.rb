@@ -54,7 +54,7 @@ class HashMap
     def get(key)
         index = hash(key) % @buckets.length
       
-        # Boundary check for index
+        #Boundary check for index
         raise IndexError, "Index out of bounds" if index.negative? || index >= @buckets.length
       
         bucket = @buckets[index]
@@ -63,6 +63,19 @@ class HashMap
         pair = bucket.find { |pair| pair[0] == key }
         pair ? pair[1] : nil
     end
+
+    def has(key)
+        index = hash(key) % @buckets.length
+      
+        #Boundary check for index
+        raise IndexError, "Index out of bounds" if index.negative? || index >= @buckets.length
+      
+        bucket = @buckets[index]
+      
+        # Check if the key exists in the bucket
+        bucket.any? { |pair| pair[0] == key }
+    end
+      
       
     # Buckets illustration purposes
     hash_map.instance_variable_get(:@buckets).each_with_index do |bucket, index|
