@@ -1,0 +1,2 @@
+# HashMap
+A hashmap class
