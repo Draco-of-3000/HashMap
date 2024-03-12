@@ -116,7 +116,7 @@ class HashMap
         all_keys
     end
 
-    def keys
+    def values
         all_values = []
 
         @buckets.each do |bucket|
@@ -126,6 +126,18 @@ class HashMap
         end
 
         all_values
+    end
+
+    def entries
+        all_entries = []
+
+        @buckets.each do |bucket|
+            bucket.each do |pair|
+                all_entries << pair
+            end
+        end
+
+        all_entries
     end
       
       
