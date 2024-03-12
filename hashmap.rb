@@ -16,6 +16,10 @@ class HashMap
 
     def set(key, value)
         index = hash(key) % @buckets.length
+
+        # Boundary check for index
+        raise IndexError, "Index out of bounds" if index.negative? || index >= @buckets.length
+        
         bucket = @buckets[index]
 
         #Check for existing key in the bucket
