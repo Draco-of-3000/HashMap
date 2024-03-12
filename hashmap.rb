@@ -35,5 +35,15 @@ class HashMap
         end
     end
 
-    
+    def grow_buckets
+        new_buckets = Array.new(@buckets.length * 2) { [] }
+
+        #Rehash and redistribute existing key-value pairs to new buckets
+        @buckets.flatten.each do |pair|
+            new_index = hash(pair[0]) % new_buckets.length
+            new_buckets[new_index] << pair
+        end
+
+        @buckets = new_buckets
+    end
 end     
