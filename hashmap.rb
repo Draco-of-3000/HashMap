@@ -75,6 +75,25 @@ class HashMap
         # Check if the key exists in the bucket
         bucket.any? { |pair| pair[0] == key }
     end
+    
+    def remove(key)
+        index = hash(key) % @buckets.length
+      
+        #Boundary check for index
+        raise IndexError, "Index out of bounds" if index.negative? || index >= @buckets.length
+      
+        bucket = @buckets[index]
+      
+        #Find the key in the bucket and remove its entry
+        pair_index = bucket.index { |pair| pair[0] == key }
+        if pair_index
+          pair = bucket.delete_at(pair_index)
+          @size -= 1
+          pair[1]
+        else
+          nil
+        end
+    end
       
       
     # Buckets illustration purposes
