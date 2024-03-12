@@ -140,9 +140,9 @@ class HashMap
         all_entries
     end
       
-      
+    
     # Buckets illustration purposes
-    hash_map.instance_variable_get(:@buckets).each_with_index do |bucket, index|
-        puts "Bucket #{index}: #{bucket.inspect}"
-    end
-end     
+    #hash_map.instance_variable_get(:@buckets).each_with_index do |bucket, index|
+    #    puts "Bucket #{index}: #{bucket.inspect}"
+    #end
+end
