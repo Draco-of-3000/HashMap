@@ -19,11 +19,11 @@ class HashMap
         bucket = @buckets[index]
 
         #Check for existing key in the bucket
-        pair_exists? = bucket.find { |pair| pair[0] == key}
+        pair_exists = bucket.find { |pair| pair[0] == key}
 
-        if pair_exists? 
+        if pair_exists 
             #Update the value if the key already exists
-            pair_exists?[1] = value 
+            pair_exists[1] = value 
         else 
             # Add a new key-value pair to the bucket
             bucket << [key, value]
@@ -45,5 +45,15 @@ class HashMap
         end
 
         @buckets = new_buckets
+    end
+
+    hash_map = HashMap.new
+    hash_map.set("Carlos", "I am the old value.")
+    hash_map.set("Carla", "I am a different key.")
+    hash_map.set("Carlos", "I am the new value.")
+
+    # Buckets illustration purposes
+    hash_map.instance_variable_get(:@buckets).each_with_index do |bucket, index|
+        puts "Bucket #{index}: #{bucket.inspect}"
     end
 end     
