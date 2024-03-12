@@ -87,11 +87,11 @@ class HashMap
         #Find the key in the bucket and remove its entry
         pair_index = bucket.index { |pair| pair[0] == key }
         if pair_index
-          pair = bucket.delete_at(pair_index)
-          @size -= 1
-          pair[1]
+            pair = bucket.delete_at(pair_index)
+            @size -= 1
+            pair[1]
         else
-          nil
+            nil
         end
     end
 
@@ -104,6 +104,17 @@ class HashMap
         @size = 0
     end
       
+    def keys
+        all_keys = []
+
+        @buckets.each do |bucket|
+            bucket.each do |pair|
+                all_keys << pair[0]
+            end
+        end
+
+        all_keys
+    end
       
       
     # Buckets illustration purposes
