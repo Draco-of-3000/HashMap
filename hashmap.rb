@@ -98,6 +98,11 @@ class HashMap
     def length
         @size
     end
+    
+    def clear
+        @buckets = Array.new(16) { [] }
+        @size = 0
+    end
       
       
       
