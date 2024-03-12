@@ -115,6 +115,18 @@ class HashMap
 
         all_keys
     end
+
+    def keys
+        all_values = []
+
+        @buckets.each do |bucket|
+            bucket.each do |pair|
+                all_values << pair[1]
+            end
+        end
+
+        all_values
+    end
       
       
     # Buckets illustration purposes
