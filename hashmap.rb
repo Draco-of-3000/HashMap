@@ -94,6 +94,11 @@ class HashMap
           nil
         end
     end
+
+    def length
+        @size
+    end
+      
       
       
     # Buckets illustration purposes
