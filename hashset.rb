@@ -72,19 +72,3 @@ class HashSet
     end
   end
   
-  # Example usage
-  set = HashSet.new
-  set.add("key1")
-  set.add("key2")
-  set.add("key3")
-  
-  puts "Set size: #{set.size}"
-  puts "Contains key2? #{set.contains?("key2")}"
-  puts "Contains key4? #{set.contains?("key4")}"
-  
-  set.remove("key2")
-  puts "After removing key2, set size: #{set.size}"
-  
-  set.clear
-  puts "After clearing, set size: #{set.size}"
-  
